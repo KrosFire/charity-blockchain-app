@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-class DataBase():
+class Database():
     def __init__(self) -> None:
         self.cluster = MongoClient(
             'mongodb+srv://' +
@@ -16,11 +16,11 @@ class DataBase():
             )
 
         self.db = self.cluster.get_database('charity_app')
-        self.collection = self.db.get_collection('blockchain')
+
+    def get_blockchain_collection(self):
+        return self.db.get_collection('blockchain')
     
-    def push_data(self, *data) -> None:
-        self.collection.insert_many(data)
-    
-    def get_data(self, query: dict = {}) -> list[dict]:
-        return self.collection.find(query)
+    def get_users_collection(self):
+        return self.db.get_collection('users')
+        
 

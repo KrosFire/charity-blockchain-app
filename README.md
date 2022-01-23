@@ -6,5 +6,5 @@ run following commands:
 
 ```
 chmod +x ./setup.sh
-./setup.sh
+. ./script.sh
 ```

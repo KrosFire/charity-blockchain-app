@@ -25,7 +25,6 @@ class Block():
     
     def __str__(self) -> str:
         return (f"Block {self.index}\n" +
-                f"time: {self.timestamp}\n" +
                 f"nonce: {self.nonce}\n" +
                 f"data: {str(self.data)}\n" +
                 f"prev_hash: {self.prev_hash}\n" +
