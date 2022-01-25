@@ -1,5 +1,7 @@
 from functools import wraps
 from flask import Flask, redirect, render_template, session
+from blockchain.blockchain import Blockchain
+from database.db_setup import Database
 
 def login_req(f):
     @wraps(f)
@@ -20,5 +22,9 @@ def home():
 @app.route('/dashboard/')
 @login_req
 def dashboard():
-    return render_template('dashboard.html')
+    bc = Blockchain()
+    balance = bc.get_user_balance(session['user']['_id'])
+    transactions = bc.list_transactions()
+    
+    return render_template('dashboard.html', balance=balance, transactions=transactions)
 

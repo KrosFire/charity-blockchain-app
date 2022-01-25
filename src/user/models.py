@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, redirect, session
 from uuid import uuid4
 from hashlib import sha256
-from markupsafe import re
 from rsa import newkeys
 from database.db_setup import Database
 from blockchain.blockchain import Blockchain

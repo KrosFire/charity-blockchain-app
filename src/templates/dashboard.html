@@ -17,7 +17,7 @@
 
   <div class="card">
     <h1>Make donation</h1>
-    <p>Your balance: {{ session['user']['balance'] }} CT (Charity Tokens)</p>
+    <p>Your balance: <span id="balance">{{ balance }}</span> CT (Charity Tokens)</p>
     <form name="donation-form">
       <label for="amount">
         Amount:
@@ -28,8 +28,18 @@
         <textarea name="private-key" id="private-key"></textarea>
       </label>
       <div class="error hidden"></div>
+      <div class="success hidden"></div>
       <button type="submit" class="submit-btn">Donate</button>
     </form>
+  </div>
+
+  <div class="card">
+    <h1>Transaction history</h1>
+    <ul>
+      {% for transaction in transactions  %}
+        <li>{{ transaction }}</li>
+      {% endfor  %}
+    </ul>
   </div>
 </div>
 {% endblock %}

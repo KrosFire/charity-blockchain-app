@@ -73,6 +73,12 @@ input {
   width: 100%;
 }
 
+.success {
+  color: green;
+  background-color: #fff;
+  width: 100%;
+}
+
 .hidden {
   display: none;
 }
